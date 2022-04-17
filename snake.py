@@ -32,6 +32,13 @@ class Snake:
     def grow(self):
         self.add_segment(self.body[-1].position())
     
+    def reset_snake(self):
+        for seg_num in self.body:
+            seg_num.goto(1000, 1000)
+        self.body.clear()
+        self.create_snake()
+        self.head = self.body[0]
+
     def up(self):
         if self.head.heading() != DOWN:
             self.head.setheading(UP)
